@@ -5,20 +5,20 @@
 using namespace std;
 
 int K;
-int order[1025];
-int tree[1025][2];
+int order[3000];
+int tree[3000][2];
 
 int make_tree(int start, int size){
-    int mid=order[(start+size-1)/2];
-    int left=order[(start+mid-1)/2];
-    int right=order[(mid+1+size-1)/2];
+    int mid=(start+start+size-1)/2;
+    int left=(start+mid-1)/2;
+    int right=(mid+start+size)/2;
     if(size>1){
-        tree[mid][0]=left;
-        tree[mid][1]=right;
+        tree[order[mid]][0]=order[left];
+        tree[order[mid]][1]=order[right];
         make_tree(start,(size-1)/2);
         make_tree(mid+1,(size-1)/2);
     }
-    return mid;
+    return order[mid];
 }
 
 void bfs(int root){
@@ -33,7 +33,9 @@ void bfs(int root){
                 q.push(tree[k][0]);
                 q.push(tree[k][1]);
             }
-            cout<<k<<" ";
+            cout<<k;
+            if(!q.empty())
+                cout<<" ";
         }
         cout<<endl;
     }
