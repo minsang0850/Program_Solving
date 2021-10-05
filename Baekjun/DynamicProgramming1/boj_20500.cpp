@@ -33,6 +33,5 @@ int main(){
             answer%=MOD;
         }
     }
-    cout<<ncr(20,10)<<endl;
     cout<<answer;
 }
