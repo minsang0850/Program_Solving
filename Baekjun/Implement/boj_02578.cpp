@@ -63,7 +63,7 @@ int main(){
             }
         }
         if(isBingo()){
-            cout<<k;
+            cout<<k+1;
             return 0;
         }
     }
