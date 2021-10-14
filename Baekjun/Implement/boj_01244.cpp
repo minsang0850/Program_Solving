@@ -34,7 +34,7 @@ int main(){
         else{
             int k=1;
             status[num]=((status[num])+1)%2;
-            while(inRange(num,k)){
+            while(inRange(num,k)&&status[num+k]==status[num-k]){
                 status[num+k]=((status[num+k])+1)%2;
                 status[num-k]=((status[num-k])+1)%2;
                 k++;
