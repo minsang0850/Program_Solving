@@ -6,6 +6,7 @@ using namespace std;
 
 int n;
 vector<pair<int,int>> calender;
+
 bool cmp(pair<int,int> a, pair<int,int> b){
     if(a.first<b.first)
         return true;
@@ -32,13 +33,12 @@ int main(){
     
     int start=calender[0].first;
     int end=calender[0].second;
-    int count=1;
     vector<pair<int,int>> v;
     v.push_back(calender[0]);
     for(int i=1; i<n; i++){
         if(calender[i].first<=end){
             end=max(calender[i].second,end);
-            int j,check=0;
+            int j=0;
 
             for(j=0; j<v.size(); j++){
                 if(v[j].second<calender[i].first)
